@@ -38,12 +38,16 @@ class Map {
                     dom.ctx.fillStyle = 'black';
                     dom.ctx.fillRect(x*25, y*25, 25, 25);
                 } else if(elx === 2) {
+                    dom.ctx.fillStyle = 'black';
+                    dom.ctx.fillRect(x*25, y*25, 25, 25);
                     dom.ctx.fillStyle = 'white';
                     dom.ctx.beginPath();
                     dom.ctx.arc(x*25+12.5, y*25+12.5, 2, 0, 360);
                     dom.ctx.stroke();
                     dom.ctx.fill();
                 } else if(elx === 3) {
+                    dom.ctx.fillStyle = 'black';
+                    dom.ctx.fillRect(x*25, y*25, 25, 25);
                     dom.ctx.fillStyle = 'white';
                     dom.ctx.beginPath();
                     dom.ctx.arc(x*25+12.5, y*25+12.5, 6, 0, 360);
