@@ -32,9 +32,6 @@ class Map {
         this.map.forEach(function(ely, y) {
             ely.forEach(function(elx, x) {
                 if(elx === 1) {
-                    let gradient = dom.ctx.createLinearGradient(0,0,400,0);
-                    gradient.addColorStop(0, 'green');
-                    gradient.addColorStop(1, 'purple');
                     dom.ctx.fillStyle = 'blue';
                     dom.ctx.fillRect(x*25, y*25, 25, 25);
                 } else if(elx === 0) {
@@ -54,17 +51,8 @@ class Map {
                     dom.ctx.fill();
                 } else if(elx === 4) {
                     //pacman not the gate currently
-                     function toRadians(deg) {
-                         return deg* Math.PI/180
-                     }
-                    dom.ctx.fillStyle = 'yellow';
-                    dom.ctx.beginPath();
-                    dom.ctx.moveTo(x*25+12.5, y*25+12.5)
-                    dom.ctx.arc(x*25+12.5, y*25+12.5, 10, toRadians(300), toRadians(240));
-                    dom.ctx.lineTo(x*25+12.5, y*25+12.5)
-                    dom.ctx.closePath();
-                    dom.ctx.stroke();
-                    dom.ctx.fill();
+                    dom.ctx.fillStyle = 'white';
+                    dom.ctx.fillRect(x*25, y*25, 25, 25);
                 }
             });
         });
