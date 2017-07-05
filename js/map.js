@@ -50,7 +50,6 @@ class Map {
                     dom.ctx.stroke();
                     dom.ctx.fill();
                 } else if(elx === 4) {
-                    //pacman not the gate currently
                     dom.ctx.fillStyle = 'white';
                     dom.ctx.fillRect(x*25, y*25, 25, 25);
                 }
