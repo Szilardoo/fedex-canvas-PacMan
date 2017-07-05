@@ -7,7 +7,7 @@ class PacMan {
         this.x = 10;
         this.y = 15;
         this.render(this.x, this.y)
-        var startTime = (new Date()).getTime();
+        let startTime = (new Date()).getTime();
         this.animate(startTime, -100);
     }
     toRadians(deg) {
@@ -56,7 +56,7 @@ class PacMan {
 			let time = (new Date()).getTime() - startTime;
 
 			let moveX = moveLeftRight;
-			let moveY = moveLeftRight;
+			let moveY = moveUpDown;
 			// pixels / second
 			this.x = 10+moveX * time / 100000;
 			this.y = 15+moveY * time / 100000;
@@ -65,7 +65,7 @@ class PacMan {
 
 			this.render(this.x, this.y)
 			requestAnimFrame(function() {
-			    this.animate(startTime);
+			    this.animate(startTime, moveLeftRight, moveUpDown);
 			}.bind(this));
 		}
     }
