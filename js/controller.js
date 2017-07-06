@@ -21,24 +21,4 @@ class Controller {
             }
         }.bind(this))
     }
-    moveUp() {
-        this.map.render();
-        this.pacman.y -= 1;
-        this.pacman.render(this.pacman.x, this.pacman.y);
-    }
-    moveLeft() {
-        this.map.render();
-        this.pacman.x -= 1;        
-        this.pacman.render(this.pacman.x, this.pacman.y);
-    }
-    moveDown() {
-        this.map.render();
-        this.pacman.y += 1;
-        this.pacman.render(this.pacman.x, this.pacman.y);
-    }
-    moveRight() {
-        this.map.render();
-        this.pacman.x += 1;        
-        this.pacman.render(this.pacman.x, this.pacman.y);
-    }
 }

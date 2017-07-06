@@ -31,26 +31,38 @@ class Map {
         let dom = new Dom();
         this.map.forEach(function(ely, y) {
             ely.forEach(function(elx, x) {
-                dom.ctx.fillStyle = 'black';
-                dom.ctx.fillRect(x*25, y*25, 25, 25);
-                if(elx === 1) {
-                    dom.ctx.fillStyle = 'blue';
-                    dom.ctx.fillRect(x*25, y*25, 25, 25);
-                } else if(elx === 2) {
-                    dom.ctx.fillStyle = 'white';
-                    dom.ctx.beginPath();
-                    dom.ctx.arc(x*25+12.5, y*25+12.5, 2, 0, 360);
-                    dom.ctx.stroke();
-                    dom.ctx.fill();
-                } else if(elx === 3) {
-                    dom.ctx.fillStyle = 'white';
-                    dom.ctx.beginPath();
-                    dom.ctx.arc(x*25+12.5, y*25+12.5, 6, 0, 360);
-                    dom.ctx.stroke();
-                    dom.ctx.fill();
-                } else if(elx === 4) {
-                    dom.ctx.fillStyle = 'white';
-                    dom.ctx.fillRect(x*25, y*25, 25, 25);
+                switch(elx) {
+                    case(0): {
+                        dom.ctx.fillStyle = 'black';
+                        dom.ctx.fillRect(x*25, y*25, 25, 25);
+                        break;
+                    }
+                    case(1): {
+                        dom.ctx.fillStyle = 'blue';
+                        dom.ctx.fillRect(x*25, y*25, 25, 25);
+                        break;
+                    }
+                    case(2): {
+                        dom.ctx.fillStyle = 'white';
+                        dom.ctx.beginPath();
+                        dom.ctx.arc(x*25+12.5, y*25+12.5, 2, 0, 360);
+                        dom.ctx.stroke();
+                        dom.ctx.fill();
+                        break;
+                    }
+                    case(3): {
+                        dom.ctx.fillStyle = 'white';
+                        dom.ctx.beginPath();
+                        dom.ctx.arc(x*25+12.5, y*25+12.5, 6, 0, 360);
+                        dom.ctx.stroke();
+                        dom.ctx.fill();
+                        break;
+                    }
+                    case(4): {
+                        dom.ctx.fillStyle = 'white';
+                        dom.ctx.fillRect(x*25, y*25, 25, 25);
+                        break;
+                    }
                 }
             });
         });
