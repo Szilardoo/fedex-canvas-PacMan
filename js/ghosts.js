@@ -34,9 +34,7 @@ class Ghosts {
 
 	ghostsMove(){
 		this.direction=[-0.1, 0.1]
-		// console.log(Object.keys(this.coordsR)[Math.floor(Math.random() * 2)])
-		// this.coordsR[Object.keys(this.coordsR)[Math.floor(Math.random() * 2)]] += this.direction[Math.floor(Math.random() * 2)];
-		this.coordsR[]
+		// this.coordsR[]
 		console.log(this.coordsR);
 		this.drawGhost(this.coordsR.x, this.coordsR.y, this.redSrc);
 
