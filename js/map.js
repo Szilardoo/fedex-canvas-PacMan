@@ -25,7 +25,17 @@ class Map {
             [0, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 0],
             [0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0],
             [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
-        ]
+        ];
+        this.allowStep = true;
+    }
+    getWallCoords(pacmanX, pacmanY) {
+        if(this.map[parseInt(pacmanY)][parseInt(pacmanX)] === 1) {
+            this.allowStep = false;
+        }
+        else {
+            this.allowStep = true;
+        }
+        return this.allowStep
     }
     render() {
         let dom = new Dom();
@@ -64,7 +74,7 @@ class Map {
                         break;
                     }
                 }
-            });
-        });
+            }.bind(this));
+        }.bind(this));
     }
 }
