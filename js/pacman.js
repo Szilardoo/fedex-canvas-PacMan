@@ -7,6 +7,7 @@ class PacMan {
         this.x = 10;
         this.y = 15;
         this.render(this.x, this.y)
+        this.ghosts = new Ghosts()
         // let startTime = (new Date()).getTime();
         // this.animate(startTime, 'up');
     }
@@ -31,6 +32,7 @@ class PacMan {
     animate(startTime, direction, key){
 
     let i = setInterval(function(){
+            this.ghosts.ghostsMove()
             window.addEventListener('keypress', function(event) {
                 if(event.keyCode === 119) {
                     clearInterval(i)
