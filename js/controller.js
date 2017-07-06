@@ -2,22 +2,25 @@
 
 class Controller {
     constructor() {
-        this.pacman = new PacMan();
-        this.pacman.render();
-        this.map = new Map();
+        let pacman = new PacMan();
         window.addEventListener('keypress', function(event) {
-            this.key = event.keyCode;
-            if(this.key === 119) {
-                this.moveUp();
+            let key = event.keyCode;
+            let startTime = (new Date()).getTime();
+            if(key === 119) {
+                console.log('w');
+                pacman.animate(startTime, 'up', key);
             }
-            if(this.key === 97) {
-                this.moveLeft();
+            if(key === 97) {
+                console.log('a');
+                pacman.animate(startTime, 'left', key);
             }
-            if(this.key === 115) {
-                this.moveDown();
+            if(key === 115) {
+                console.log('s');
+                pacman.animate(startTime, 'down', key);
             }
-            if(this.key === 100) {
-                this.moveRight();
+            if(key === 100) {
+                console.log('d');
+                pacman.animate(startTime, 'right', key);
             }
         }.bind(this))
     }
