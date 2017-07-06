@@ -1,8 +1,7 @@
 'use strict';
 
 class Controller {
-    constructor() {
-        let pacman = new PacMan();
+    constructor(pacman) {
         window.addEventListener('keypress', function(event) {
             let key = event.keyCode;
             let startTime = (new Date()).getTime();

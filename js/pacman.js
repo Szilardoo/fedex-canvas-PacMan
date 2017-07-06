@@ -56,7 +56,7 @@ class PacMan {
                 }
                 this.render(this.x, this.y);
             } else {
-                
+                let controller = new Controller(this)
             }
         }.bind(this), 20)
     }
