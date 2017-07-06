@@ -42,6 +42,9 @@ class Map {
         if(this.map[parseInt(pacmanY)][parseInt(pacmanX)] === 2) {
             this.points += 1;
             this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
+        } else if(this.map[parseInt(pacmanY)][parseInt(pacmanX)] === 3) {
+            this.points += 100;
+            this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
         }
     }
     render() {

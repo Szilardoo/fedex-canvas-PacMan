@@ -7,6 +7,16 @@ class PacMan {
         this.render(this.x, this.y)
         this.ghosts = new Ghosts()
     }
+    teleport() {
+        if(parseInt(this.x) === 20) {
+            this.x = 0.1;
+            this.y = 9;
+        } else if(Math.ceil(this.x) === 0) {
+            this.y = 9;
+            this.x = 19.9
+            
+        }
+    }
     toRadians(deg) {
         return deg* Math.PI/180;
     }
@@ -41,7 +51,7 @@ class PacMan {
             })
             this.dom.ctx.clearRect(0, 0, 525, 525);
             this.map.render();
-            console.log(this.map.points)
+            // console.log(this.map.points)
             switch(direction) {
                 case 'up':
                     if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x+0.99, this.y)){
@@ -86,6 +96,7 @@ class PacMan {
                     }
                     break;
             }
+            this.teleport();
             // console.log(this.map.allowStep)
             this.render(this.x, this.y);
         }.bind(this), 20)
