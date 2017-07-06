@@ -27,6 +27,7 @@ class Map {
             [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
         ];
         this.allowStep = true;
+        this.points = 0;
     }
     getWallCoords(pacmanX, pacmanY) {
         if(this.map[parseInt(pacmanY)][parseInt(pacmanX)] === 1) {
@@ -36,6 +37,12 @@ class Map {
             this.allowStep = true;
         }
         return this.allowStep
+    }
+    getPointCoords(pacmanX, pacmanY) {
+        if(this.map[parseInt(pacmanY)][parseInt(pacmanX)] === 2) {
+            this.points += 1;
+            this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
+        }
     }
     render() {
         let dom = new Dom();

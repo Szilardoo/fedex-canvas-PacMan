@@ -22,10 +22,9 @@ class PacMan {
         this.dom.ctx.stroke();
         this.dom.ctx.fill();
     }
-
     animate(startTime, direction){
         let interval = setInterval(function() {
-            this.ghosts.ghostsMove();
+            this.ghosts.ghostsMove()
             window.addEventListener('keypress', function(event) {
                 if(event.keyCode === 119) {
                     clearInterval(interval);
@@ -42,20 +41,52 @@ class PacMan {
             })
             this.dom.ctx.clearRect(0, 0, 525, 525);
             this.map.render();
+            console.log(this.map.points)
             switch(direction) {
                 case 'up':
-                    (this.y > 0) ? this.y -= 0.1 : this.y;
+                    if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x+0.99, this.y)){
+                        this.map.getPointCoords(this.x, this.y);
+                        this.y -= 0.1
+                        if(this.map.getWallCoords(this.x, this.y)) {
+                            // console.log("cant turn left")
+                        }
+                        if(this.map.getWallCoords(this.x+0.99, this.y)) {
+                            // console.log("cant turn right")
+                        }
+                    } else {
+                        this.y = Math.round(this.y)
+                        this.x = Math.round(this.x)
+                    }
                     break;
                 case 'down':
-                    (this.y < 20) ? this.y += 0.1 : this.y;
+                    if(this.map.getWallCoords(this.x+0.99, this.y+0.99) && this.map.getWallCoords(this.x, this.y+0.99)){
+                        this.map.getPointCoords(this.x, this.y);
+                        this.y += 0.1
+                    } else {
+                        this.x = Math.round(this.x)
+                        this.y = Math.round(this.y)
+                    }
                     break;
                 case 'left':
-                    (this.x > 0) ? this.x -= 0.1 : this.x;
+                    if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x, this.y+0.99)){
+                        this.map.getPointCoords(this.x, this.y);
+                        this.x -= 0.1
+                    } else {
+                        this.x = Math.round(this.x)
+                        this.y = Math.round(this.y)
+                    }
                     break;
                 case 'right':
-                    (this.x < 20) ? this.x += 0.1 : this.x;
+                    if(this.map.getWallCoords(this.x+0.99, this.y+0.99) && this.map.getWallCoords(this.x+1, this.y)){
+                        this.map.getPointCoords(this.x, this.y);
+                        this.x += 0.1
+                    } else {
+                        this.x = Math.round(this.x)
+                        this.y = Math.round(this.y)
+                    }
                     break;
             }
+            // console.log(this.map.allowStep)
             this.render(this.x, this.y);
         }.bind(this), 20)
     }
