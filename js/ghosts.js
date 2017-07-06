@@ -88,8 +88,6 @@ class Ghosts {
 
 		this.drawGhost(this.redX, this.redY, this.redSrc);
 
-
-
 		this.drawGhost(this.coordsB.x, this.coordsB.y, this.blueSrc);
 		this.drawGhost(this.coordsP.x, this.coordsP.y, this.pinkSrc);
 		this.drawGhost(this.coordsO.x, this.coordsO.y, this.orangeSrc);
