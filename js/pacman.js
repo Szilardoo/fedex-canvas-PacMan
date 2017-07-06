@@ -5,12 +5,8 @@ class PacMan {
         this.dom = new Dom();
         this.map = new Map();
         this.render(this.x, this.y)
-<<<<<<< HEAD
         this.ghosts = new Ghosts()
-        // let startTime = (new Date()).getTime();
-        // this.animate(startTime, 'up');
-=======
->>>>>>> 2ef217e2694525d45624fd477a584878f9b55ec6
+
     }
     toRadians(deg) {
         return deg* Math.PI/180;
@@ -30,8 +26,7 @@ class PacMan {
 
     animate(startTime, direction){
         let interval = setInterval(function() {
-            this.ghosts.ghostsMove()
-            if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x+1, this.y+0.99)) {
+                this.ghosts.ghostsMove()
                 window.addEventListener('keypress', function(event) {
                     if(event.keyCode === 119) {
                         clearInterval(interval);
@@ -51,22 +46,27 @@ class PacMan {
 
                 switch(direction) {
                     case 'up':
-                        (this.y > 0) ? this.y -= 0.1 : this.y;
+                        if(this.map.getWallCoords(this.x, this.y)){
+                            (this.y > 0) ? this.y -= 0.1 : this.y;
+                        }
                         break;
                     case 'down':
-                        (this.y < 20) ? this.y += 0.1 : this.y;
+                        if(this.map.getWallCoords(this.x+1, this.y+0.99)){
+                            (this.y < 20) ? this.y += 0.1 : this.y;
+                        }
                         break;
                     case 'left':
-                        (this.x > 0) ? this.x -= 0.1 : this.x;
+                        if(this.map.getWallCoords(this.x, this.y)){
+                            (this.x > 0) ? this.x -= 0.1 : this.x;
+                        }
                         break;
                     case 'right':
-                        (this.x < 20) ? this.x += 0.1 : this.x;
+                        if(this.map.getWallCoords(this.x+1, this.y+0.99)){
+                            (this.x < 20) ? this.x += 0.1 : this.x;
+                        }
                         break;
                 }
                 this.render(this.x, this.y);
-            } else {
-                
-            }
         }.bind(this), 20)
     }
 }

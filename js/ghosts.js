@@ -37,6 +37,9 @@ class Ghosts {
 		// this.coordsR[]
 		console.log(this.coordsR);
 		this.drawGhost(this.coordsR.x, this.coordsR.y, this.redSrc);
+		this.drawGhost(this.coordsB.x, this.coordsB.y, this.blueSrc);
+		this.drawGhost(this.coordsP.x, this.coordsP.y, this.pinkSrc);
+		this.drawGhost(this.coordsO.x, this.coordsO.y, this.orangeSrc);
 
 	}
 
