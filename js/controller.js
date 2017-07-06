@@ -6,16 +6,16 @@ class Controller {
             let key = event.keyCode;
             let startTime = (new Date()).getTime();
             if(key === 119) {
-                pacman.animate(startTime, 'up', key);
+                pacman.animate(startTime, 'up');
             }
             if(key === 97) {
-                pacman.animate(startTime, 'left', key);
+                pacman.animate(startTime, 'left');
             }
             if(key === 115) {
-                pacman.animate(startTime, 'down', key);
+                pacman.animate(startTime, 'down');
             }
             if(key === 100) {
-                pacman.animate(startTime, 'right', key);
+                pacman.animate(startTime, 'right');
             }
         }.bind(this))
     }

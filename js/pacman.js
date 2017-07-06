@@ -5,6 +5,7 @@ class PacMan {
         this.dom = new Dom();
         this.map = new Map();
         this.render(this.x, this.y)
+        this.ghosts = new Ghosts()
     }
     toRadians(deg) {
         return deg* Math.PI/180;
@@ -21,43 +22,41 @@ class PacMan {
         this.dom.ctx.stroke();
         this.dom.ctx.fill();
     }
+
     animate(startTime, direction){
         let interval = setInterval(function() {
-            if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x+1, this.y+0.99)) {
-                window.addEventListener('keypress', function(event) {
-                    if(event.keyCode === 119) {
-                        clearInterval(interval);
-                    }
-                    if(event.keyCode === 97) {
-                        clearInterval(interval);
-                    }
-                    if(event.keyCode === 115) {
-                        clearInterval(interval);
-                    }
-                    if(event.keyCode === 100) {
-                        clearInterval(interval);
-                    }
-                })
-                this.dom.ctx.clearRect(0, 0, 525, 525);
-                this.map.render();
-                switch(direction) {
-                    case 'up':
-                        (this.y > 0) ? this.y -= 0.1 : this.y;
-                        break;
-                    case 'down':
-                        (this.y < 20) ? this.y += 0.1 : this.y;
-                        break;
-                    case 'left':
-                        (this.x > 0) ? this.x -= 0.1 : this.x;
-                        break;
-                    case 'right':
-                        (this.x < 20) ? this.x += 0.1 : this.x;
-                        break;
+            this.ghosts.ghostsMove();
+            window.addEventListener('keypress', function(event) {
+                if(event.keyCode === 119) {
+                    clearInterval(interval);
                 }
-                this.render(this.x, this.y);
-            } else {
-                let controller = new Controller(this)
+                if(event.keyCode === 97) {
+                    clearInterval(interval);
+                }
+                if(event.keyCode === 115) {
+                    clearInterval(interval);
+                }
+                if(event.keyCode === 100) {
+                    clearInterval(interval);
+                }
+            })
+            this.dom.ctx.clearRect(0, 0, 525, 525);
+            this.map.render();
+            switch(direction) {
+                case 'up':
+                    (this.y > 0) ? this.y -= 0.1 : this.y;
+                    break;
+                case 'down':
+                    (this.y < 20) ? this.y += 0.1 : this.y;
+                    break;
+                case 'left':
+                    (this.x > 0) ? this.x -= 0.1 : this.x;
+                    break;
+                case 'right':
+                    (this.x < 20) ? this.x += 0.1 : this.x;
+                    break;
             }
+            this.render(this.x, this.y);
         }.bind(this), 20)
     }
 }
