@@ -46,22 +46,22 @@ class PacMan {
 
                 switch(direction) {
                     case 'up':
-                        if(this.map.getWallCoords(this.x, this.y)){
+                        if(this.map.getWallCoords(this.x+0.2, this.y+0.1) && this.map.getWallCoords(this.x+0.8, this.y+0.1)){
                             (this.y > 0) ? this.y -= 0.1 : this.y;
                         }
                         break;
                     case 'down':
-                        if(this.map.getWallCoords(this.x+1, this.y+0.99)){
+                        if(this.map.getWallCoords(this.x+0.2, this.y+0.99) && this.map.getWallCoords(this.x+0.8, this.y+0.99)){
                             (this.y < 20) ? this.y += 0.1 : this.y;
                         }
                         break;
                     case 'left':
-                        if(this.map.getWallCoords(this.x, this.y)){
+                        if(this.map.getWallCoords(this.x-0.1, this.y+0.2) && this.map.getWallCoords(this.x-0.1, this.y+0.8)){
                             (this.x > 0) ? this.x -= 0.1 : this.x;
                         }
                         break;
                     case 'right':
-                        if(this.map.getWallCoords(this.x+1, this.y+0.99)){
+                        if(this.map.getWallCoords(this.x+1.1, this.y+0.2) && this.map.getWallCoords(this.x+1.1, this.y+0.4)){
                             (this.x < 20) ? this.x += 0.1 : this.x;
                         }
                         break;

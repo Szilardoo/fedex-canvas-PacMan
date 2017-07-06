@@ -3,14 +3,15 @@
 class Ghosts {
 	constructor(){
 		this.dom = new Dom();
+		this.map = new Map();
 		this.redSrc = './ghosts/red.png'
 		this.orangeSrc = './ghosts/orange.png'
 		this.pinkSrc = './ghosts/pink.png'
 		this.blueSrc = './ghosts/blue.png'
-		this.coordsR = {
-			'x': 10,
-			'y': 7
-		}
+		
+
+		this.redX = 10;
+		this.redY = 7;
 
 		this.coordsB = {
 			'x': 9,
@@ -26,21 +27,87 @@ class Ghosts {
 			'x': 11,
 			'y': 9
 		}
-		this.drawGhost(this.coordsR.x, this.coordsR.y, this.redSrc);
+		this.drawGhost(this.redX, this.redY, this.redSrc);
 		this.drawGhost(this.coordsB.x, this.coordsB.y, this.blueSrc);
 		this.drawGhost(this.coordsP.x, this.coordsP.y, this.pinkSrc);
 		this.drawGhost(this.coordsO.x, this.coordsO.y, this.orangeSrc);
+		console.log(this.map.getWallCoords(this.redX-3, this.redY));
 	}
 
 	ghostsMove(){
-		this.direction=[-0.1, 0.1]
+		this.direction=[-0.1, 0.1];
+		this.xy = ['x', 'y']; 
 		// this.coordsR[]
-		console.log(this.coordsR);
-		this.drawGhost(this.coordsR.x, this.coordsR.y, this.redSrc);
+		// while(this.validMove(this.redX, this.redY)){
+		// 	if(this.map.getWallCoords(this.redX+0.2, this.redY+0.1) && this.map.getWallCoords(this.redX+0.8, this.redY+0.1)){
+		// 		this.redX += this.direction[Math.floor(Math.random() *2)];
+		// 	} else if(this.map.getWallCoords(this.redX+0.2, this.redY+0.99) && this.map.getWallCoords(this.redX+0.8, this.redY+0.99)){
+		// 		this.redX += this.direction[Math.floor(Math.random() *2)];
+		// 	} else if(this.map.getWallCoords(this.redX-0.1, this.redY+0.2) && this.map.getWallCoords(this.redX-0.1, this.redY+0.8)){
+		// 		this.redY += this.direction[Math.floor(Math.random() *2)];
+		// 	} else if(this.map.getWallCoords(this.redX+1.1, this.redY+0.2) && this.map.getWallCoords(this.redX+1.1, this.redY+0.4)){
+		// 		this.redY += this.direction[Math.floor(Math.random() *2)];
+		// 	}
+		// }
+
+
+		//A validáló function eredménye ebbe a változóba megy.
+		let validOrNot;
+
+
+		//Addig generálja nekünk az új irányokat ameddig a valid false
+		while(!validOrNot){
+			//ezzel a változóval kiválasztjuk hogy X vagy az Y koordinátához addjunk hozzá vagy vegyünk el.
+			this.xOrY = this.xy[Math.floor(Math.random() *2)]
+			//ha az x-hez ...
+			if(this.xOrY === 'x'){
+				console.log(this.redX);
+				//generáljon egy új x-értéket a régi x-értékéből plusz -0.1 vagy 0.1 tehár jobra vagy balra menjen.
+				this.newX = this.redX + this.direction[Math.floor(Math.random() *2)];
+				//megnézzük hogy az új értékünk valid-e tehát nem-e fal.
+				validOrNot = this.validMove(this.newX,this.redY)
+			// ha az y-hoz...
+			} else {
+				//szintén ugyan az igaz mint az x-re
+				this.newY = this.redY + this.direction[Math.floor(Math.random() *2)];
+				validOrNot = this.validMove(this.newY,this.redY)
+
+			}
+		}
+
+		//ha a validáló functionunk elfogadja akkor az új értéket állitsa be a régi x-y érték helyére, ha nem akkor ugye a while addig csinálja ameddig nem lesz igaz.
+		if(validOrNot){
+			if(this.xOrY === 'x'){
+				this.redX = this.newX;
+			} else {
+				this.redY = this.newY;
+			}
+		}
+
+
+
+		this.drawGhost(this.redX, this.redY, this.redSrc);
+
+
+
 		this.drawGhost(this.coordsB.x, this.coordsB.y, this.blueSrc);
 		this.drawGhost(this.coordsP.x, this.coordsP.y, this.pinkSrc);
 		this.drawGhost(this.coordsO.x, this.coordsO.y, this.orangeSrc);
 
+	}
+
+	validMove(x,y){
+		let valid = false;
+		if(this.map.getWallCoords(x+0.2, y+0.1) && this.map.getWallCoords(x+0.8, y+0.1)){
+			if(this.map.getWallCoords(x+0.2, y+0.99) && this.map.getWallCoords(x+0.8, y+0.99)){
+				if(this.map.getWallCoords(x-0.1, y+0.2) && this.map.getWallCoords(x-0.1, y+0.8)){
+					if(this.map.getWallCoords(x+1.1, y+0.2) && this.map.getWallCoords(x+1.1, y+0.4)){
+						valid = true;
+					}
+				}
+			}		
+		}
+		return valid;
 	}
 
 	drawGhost(x, y, src){
