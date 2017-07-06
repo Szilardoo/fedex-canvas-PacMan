@@ -7,8 +7,8 @@ class PacMan {
         this.x = 10;
         this.y = 15;
         this.render(this.x, this.y)
-        let startTime = (new Date()).getTime();
-        this.animate(startTime, -100);
+        // let startTime = (new Date()).getTime();
+        // this.animate(startTime, 'up');
     }
     toRadians(deg) {
         return deg* Math.PI/180
@@ -28,45 +28,72 @@ class PacMan {
 
     }
 
-    animate(startTime, moveLeftRight = 0, moveUpDown = 0){
-     //  	setInterval(function(){
-     //  		if(this.x < 20){
-     //  			this.dom.ctx.clearRect(0, 0, 525, 525);
-     //  			this.map.render();
-	    //   		this.x += 0.2
-	    // 		this.render(this.x, this.y);
-	    // 		// if(this.x < 21){
-	    // 		// 	this.animate(startTime);
-	    // 		// } 
-	    // 		console.log(this.x)
-	    // 	}
-    	// // var time = (new Date()).getTime() - startTime;
+    animate(startTime, direction, key){
 
-		window.requestAnimFrame = (function(callback) {
-		    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-		    function(callback) {
-		      window.setTimeout(callback, 10000 / 60);
-		    };
-		  })();
+    let i = setInterval(function(){
+            window.addEventListener('keypress', function(event) {
+                if(event.keyCode === 119) {
+                    clearInterval(i)
+                }
+                if(event.keyCode === 97) {
+                    clearInterval(i)
+                }
+                if(event.keyCode === 115) {
+                    clearInterval(i)
+                }
+                if(event.keyCode === 100) {
+                    clearInterval(i)
+                }
+            })
+      		if(this.x < 20){
+      			this.dom.ctx.clearRect(0, 0, 525, 525);
+      			this.map.render();
+                switch(direction) {
+                    case 'up':
+                        this.y -= 0.1
+                        break;
+                    case 'down':
+                        this.y += 0.1;
+                        break;
+                    case 'left':
+                        this.x -= 0.1;
+                        break;
+                    case 'right':
+                        this.x += 0.1;
+                        break;
+                }
+	    		this.render(this.x, this.y);
+	    		console.log(this.x)
+	    	}
 
-		console.log('the code is still running')
-		if(1 < this.x < 20){
-			this.dom.ctx.clearRect(0, 0, 525, 525);
-     		this.map.render();
-			let time = (new Date()).getTime() - startTime;
+        }.bind(this), 20)
 
-			let moveX = moveLeftRight;
-			let moveY = moveUpDown;
-			// pixels / second
-			this.x = 10+moveX * time / 100000;
-			this.y = 15+moveY * time / 100000;
+		// window.requestAnimFrame = (function(callback) {
+		//     return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+		//     function(callback) {
+		//       window.setTimeout(callback, 100000 / 60);
+		//     };
+		//   })();
 
-			console.log(this.x)
+		// console.log('the code is still running')
+		// if(this.x < 20 && this.x > 1){
+		// 	this.dom.ctx.clearRect(0, 0, 525, 525);
+  //    		this.map.render();
+		// 	let time = (new Date()).getTime() - startTime;
 
-			this.render(this.x, this.y)
-			requestAnimFrame(function() {
-			    this.animate(startTime, moveLeftRight, moveUpDown);
-			}.bind(this));
-		}
+		// 	let moveX = moveLeftRight;
+		// 	let moveY = moveUpDown;
+		// 	// pixels / second
+		// 	this.x = 10+moveX * time / 10000;
+		// 	this.y = 15+moveY * time / 10000;
+
+		// 	console.log('ez az X', this.x)
+  //           console.log('ez az Y', this.y)
+
+		// 	this.render(this.x, this.y)
+		// 	requestAnimFrame(function() {
+		// 	    this.animate(startTime, moveLeftRight, moveUpDown);
+		// 	}.bind(this));
+		// }
     }
 }
