@@ -37,7 +37,7 @@ class Ghosts {
 		this.drawGhost(this.coordsB.x, this.coordsB.y, this.blueSrc);
 		this.drawGhost(this.coordsP.x, this.coordsP.y, this.pinkSrc);
 		this.drawGhost(this.coordsO.x, this.coordsO.y, this.orangeSrc);
-		console.log(this.map.getWallCoords(this.redX-3, this.redY));
+		// console.log(this.map.getWallCoords(this.redX-3, this.redY));
 	}
 
 	ghostsMove(){
