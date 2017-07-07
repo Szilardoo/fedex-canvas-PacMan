@@ -18,9 +18,6 @@ canvas {
   height: 100vh;
   width: 100vw;
   color: white;
-  font-family: 'px437_ibm_biosregular';
-  font-size: 14px;
-  padding: 5px;
 }
 
 .main {
@@ -33,19 +30,35 @@ canvas {
 }
 
 .upperPanel {
-  width: 100%;
+  width: 85%;
   display: flex;
   flex-direction: column;
 }
 
 
 .middlePanel {
-  padding: 15px 15px;
+  padding: 5px 15px;
 }
 
 p { 
-  /*font-family: 'px437_ibm_biosregular';*/
+  font-family: 'px437_ibm_biosregular';
   font-size: 14px;
   padding: 5px;
  }
+
+ .bottomPanel {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+ }
+
+
+.lifes img {
+  width: 25px;
+  height: 25px;
+}
+
+.fruits {
+  width: 100px;
+}
 
