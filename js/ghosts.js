@@ -45,33 +45,43 @@ class Ghosts {
 		if(this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9) &&
 			this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.9) &&
 			this.map.getWallCoords(this.redX+0.1, this.redY-0.2) && this.map.getWallCoords(this.redX+0.9, this.redY-0.2) &&
-			this.map.getWallCoords(this.redX+0.1, this.redY+1.99) && this.map.getWallCoords(this.redX+0.9, this.redY+1.99)
+			this.map.getWallCoords(this.redX+0.1, this.redY+1.1) && this.map.getWallCoords(this.redX+0.9, this.redY+1.1)
 			){
-			// if(this.xOrY === 'x'){
-			// 		this.redX += this.leRiUpDo;
-			// 	} else {
-					this.redY -= 1;
-				// }
-		}
-		//left && right & up
-		else if(this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.9)
-		 && this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9) &&
-		 this.map.getWallCoords(this.redX+0.1, this.redY-0.2) && this.map.getWallCoords(this.redX+0.9, this.redY-0.2)){
+				this.redY += 0.1;
+			//right
+		}else if (this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9) &&
+			this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.9)) {
+			console.log('ez')
 			this.redX += this.leRiUpDo;
-		}else if (this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9)){
-			// console.log('ss')
-			// console.log(this.map.getWallCoords(this.redX+0.1, this.redY+0.99))
-			//down
-			if(this.map.getWallCoords(this.redX+0.1, this.redY+1.99) && this.map.getWallCoords(this.redX+0.9, this.redY+1.99)){
-				this.redY += 0.1
-			}else {
-				this.redX += 0.1 
-			}
 
+
+		} else if (this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9)){
+			console.log('ss')
+			//down
+			if(this.map.getWallCoords(this.redX+0.1, this.redY+1) && this.map.getWallCoords(this.redX+0.9, this.redY+1)){
+				this.redY += 0.1
+			} else {
+				console.log('else')
+				this.redX += 0.1;
+				this.leRiUpDo = 0.1
+			}
 		} else if (this.map.getWallCoords(this.redX+0.8, this.redY+0.8) && this.map.getWallCoords(this.redX, this.redY+0.8)){
 			// console.log('asd')
 			this.redY += 0.1;
-		}
+		 } else if(this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.7)){
+		 	console.log('he')
+		 	this.redX -= 0.1; 
+		 } else if(this.map.getWallCoords(this.redX+0.1, this.redY-0.2) && this.map.getWallCoords(this.redX+0.9, this.redY-0.2)){}
+
+
+
+
+
+		 //else if (this.map.getWallCoords(this.redX+0.1, this.redY+1.1) && this.map.getWallCoords(this.redX+0.9, this.redY+1.1)){
+		// 	if(this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9)) {
+		// 		this.redX += 0.1
+		// 	}
+		// }
 
 
 
