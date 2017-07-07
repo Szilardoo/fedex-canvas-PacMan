@@ -47,6 +47,7 @@ class Map {
             this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
         }
     }
+
     render() {
         let dom = new Dom();
         this.map.forEach(function(ely, y) {

@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'px437_ibm_biosregular';
+  src: url('px437_ibm_bios-webfont.woff2') format('woff2'),
+       url('px437_ibm_bios-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+canvas {
+  background: black;
+}
+
+.container {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 525px;
+  height: 100%;
+}
+
+.upperPanel {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.middlePanel {
+  padding: 5px 15px;
+}
+
+p { 
+  font-family: 'px437_ibm_biosregular';
+  font-size: 14px;
+  padding: 5px;
+ }
+
+ .bottomPanel {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+ }
+
+
+.lifes img {
+  width: 25px;
+  height: 25px;
+}
+
+.fruits {
+  width: 100px;
+}
+
