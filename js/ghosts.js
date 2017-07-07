@@ -54,6 +54,7 @@ class Ghosts {
 			console.log('ez')
 			this.redX += this.leRiUpDo;
 
+
 		} else if (this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9)){
 			console.log('ss')
 			//down
@@ -65,7 +66,7 @@ class Ghosts {
 				this.leRiUpDo = 0.1
 			}
 		} else if (this.map.getWallCoords(this.redX+0.8, this.redY+0.8) && this.map.getWallCoords(this.redX, this.redY+0.8)){
-			console.log('asd')
+			// console.log('asd')
 			this.redY += 0.1;
 		 } else if(this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.7)){
 		 	console.log('he')
