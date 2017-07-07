@@ -44,6 +44,7 @@ class Map {
             this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
         } else if(this.map[parseInt(pacmanY)][parseInt(pacmanX)] === 3) {
             this.points += 100;
+            this.eatableGhosts = true
             this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
         }
     }
