@@ -37,8 +37,9 @@ class PacMan {
         this.dom.ctx.fill();
     }
     animate(startTime, direction){
+        // let score = document.querySelector('.points');
         let interval = setInterval(function() {
-            this.ghosts.ghostsMove()
+            this.ghosts.ghostsMove();
             window.addEventListener('keypress', function(event) {
                 if(event.keyCode === 119) {
                     clearInterval(interval);
@@ -52,10 +53,11 @@ class PacMan {
                 if(event.keyCode === 100) {
                     clearInterval(interval);
                 }
-            })
+            });
             this.dom.ctx.clearRect(0, 0, 525, 525);
             this.map.render();
-            // console.log(this.map.points)
+            // console.log(this.map.points);
+            document.querySelector('.points').textContent = this.map.points;
             switch(direction) {
                 case 'up':
                     if(this.map.getWallCoords(this.x, this.y-0.1) && this.map.getWallCoords(this.x+0.99, this.y-0.1)){
@@ -75,9 +77,7 @@ class PacMan {
                                 this.check = true;
                             }
                         }
-
-
-                        console.log(this.radStart, this.radEnd);
+                        // console.log(this.radStart, this.radEnd);
                         this.y -= 0.1;
                         if(this.map.getWallCoords(this.x, this.y)) {
                             // console.log("cant turn left")

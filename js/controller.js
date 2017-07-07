@@ -6,8 +6,8 @@ class Controller {
             let key = event.keyCode;
             let startTime = (new Date()).getTime();
             if(key === 119) {
-                pacman.radStart = 320;
-                pacman.radEnd = 220;
+                pacman.radStart = 300;
+                pacman.radEnd = 240;
                 pacman.animate(startTime, 'up');
             }
             if(key === 97) {

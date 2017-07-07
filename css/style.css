@@ -30,11 +30,29 @@ canvas {
 }
 
 .upperPanel {
-  width: 85%;
+  width: 95%;
   display: flex;
   flex-direction: column;
 }
 
+.upperPanel p:first-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+.upperPanel p:nth-child(2) {
+  display: flex;
+  justify-content: space-around;
+}
+
+span {
+  width: 80px;
+}
+
+.upperPanel p span:nth-child(2) {
+  width: 200px;
+  text-align: center;
+}
 
 .middlePanel {
   padding: 5px 15px;
@@ -42,7 +60,7 @@ canvas {
 
 p { 
   font-family: 'px437_ibm_biosregular';
-  font-size: 14px;
+  font-size: 18px;
   padding: 5px;
  }
 
@@ -54,8 +72,8 @@ p {
 
 
 .lifes img {
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
 }
 
 .fruits {
