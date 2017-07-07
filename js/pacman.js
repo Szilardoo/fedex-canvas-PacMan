@@ -10,6 +10,7 @@ class PacMan {
         this.radStart = 210;
         this.radEnd = 150;
         this.render(this.x, this.y, this.radStart, this.radEnd);
+        this.canEat = false;
     }
     teleport() {
         if(parseInt(this.x) === 20) {
@@ -39,6 +40,14 @@ class PacMan {
     }
     animate(startTime, direction){
         let interval = setInterval(function() {
+            if(Math.round(this.ghosts.redX) === Math.round(this.x) && Math.round(this.ghosts.redY) === Math.round(this.y) && !this.canEat){
+                clearInterval(interval);
+            } else {
+                if(Math.round(this.ghosts.redX) === Math.round(this.x) && Math.round(this.ghosts.redY) === Math.round(this.y) && this.canEat){
+                    this.ghosts.eatedRed = true;
+                    this.ghosts.redX = 0;
+                    this.map.points += 200;
+                }
             this.ghosts.ghostsMove();
             window.addEventListener('keypress', function(event) {
                 if(event.keyCode === 119) {
@@ -165,9 +174,29 @@ class PacMan {
                     }
                     break;
             }
+
+            if(this.map.eatableGhosts) {
+
+                console.log('eat')
+                this.canEat = true;
+                this.ghosts.redSrc = './ghosts/eat.png'
+                this.ghosts.orangeSrc = './ghosts/eat.png'
+                this.ghosts.pinkSrc = './ghosts/eat.png'
+                this.ghosts.blueSrc = './ghosts/eat.png'
+
+                setTimeout(function(){ 
+                    this.canEat = false;
+                    this.ghosts.redSrc = './ghosts/red.png'
+                    this.ghosts.orangeSrc = './ghosts/orange.png'
+                    this.ghosts.pinkSrc = './ghosts/pink.png'
+                    this.ghosts.blueSrc = './ghosts/blue.png'
+                 }.bind(this), 7000);
+                this.map.eatableGhosts = false;
+            }
             this.teleport();
             // console.log(this.map.allowStep)
             this.render(this.x, this.y, this.radStart, this.radEnd);
+        }
         }.bind(this), 20);
     }
 }
