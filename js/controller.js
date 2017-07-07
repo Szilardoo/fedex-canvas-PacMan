@@ -1,29 +1,22 @@
 // 'use strict';
 
 class Controller {
-    constructor() {
-        let pacman = new PacMan();
+    constructor(pacman) {
         window.addEventListener('keypress', function(event) {
-            // console.log(event.keyCode)
             let key = event.keyCode;
             let startTime = (new Date()).getTime();
-        
             if(key === 119) {
-                // console.log('w');
-                pacman.animate(startTime, 'up', key);
+                pacman.animate(startTime, 'up');
             }
             if(key === 97) {
-                // console.log('a');
-                pacman.animate(startTime, 'left', key);
+                pacman.animate(startTime, 'left');
             }
             if(key === 115) {
-                // console.log('s');
-                pacman.animate(startTime, 'down', key);
+                pacman.animate(startTime, 'down');
             }
             if(key === 100) {
-                // console.log('d');
-                pacman.animate(startTime, 'right', key);
+                pacman.animate(startTime, 'right');
             }
-        });
+        }.bind(this))
     }
 }
