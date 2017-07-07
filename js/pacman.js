@@ -5,6 +5,8 @@ class PacMan {
         this.dom = new Dom();
         this.map = new Map();
         this.ghosts = new Ghosts();
+        this.check = true;
+        this.value = 5;
         this.radStart = 210;
         this.radEnd = 150;
         this.render(this.x, this.y, this.radStart, this.radEnd);
@@ -58,8 +60,24 @@ class PacMan {
                 case 'up':
                     if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x+0.99, this.y)){
                         this.map.getPointCoords(this.x, this.y);
-                        this.radStart = 300;
-                        this.radEnd = 240;  
+
+                        if (this.check && this.radStart <= 320 || this.check && this.radEnd <=240 ) {
+                            this.radStart -= this.value;
+                            this.radEnd += this.value;
+                            if (this.radStart === 270) {
+                                this.check = false;
+                            } 
+                        } else {
+                            this.check = false;
+                            this.radStart += this.value;
+                            this.radEnd -= this.value;
+                            if (this.radStart >= 320) {
+                                this.check = true;
+                            }
+                        }
+
+
+                        console.log(this.radStart, this.radEnd);
                         this.y -= 0.1;
                         if(this.map.getWallCoords(this.x, this.y)) {
                             // console.log("cant turn left")
@@ -75,8 +93,22 @@ class PacMan {
                 case 'down':
                     if(this.map.getWallCoords(this.x+0.99, this.y+0.99) && this.map.getWallCoords(this.x, this.y+0.99)){
                         this.map.getPointCoords(this.x, this.y);
-                        this.radStart = 120;
-                        this.radEnd = 60; 
+
+                        if (this.check && this.radStart <= 140 || this.check && this.radEnd <=40 ) {
+                            this.radStart -= this.value;
+                            this.radEnd += this.value;
+                            if (this.radStart === 90) {
+                                this.check = false;
+                            } 
+                        } else {
+                            this.check = false;
+                            this.radStart += this.value;
+                            this.radEnd -= this.value;
+                            if (this.radStart >= 140) {
+                                this.check = true;
+                            }
+                        }
+
                         this.y += 0.1;
                     } else {
                         this.x = Math.round(this.x);
@@ -86,8 +118,22 @@ class PacMan {
                 case 'left':
                     if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x, this.y+0.99)){
                         this.map.getPointCoords(this.x, this.y);
-                        this.radStart = 210;
-                        this.radEnd = 150; 
+
+                        if (this.check && this.radStart <= 230 || this.check && this.radEnd <=130 ) {
+                            this.radStart -= this.value;
+                            this.radEnd += this.value;
+                            if (this.radStart === 180) {
+                                this.check = false;
+                            } 
+                        } else {
+                            this.check = false;
+                            this.radStart += this.value;
+                            this.radEnd -= this.value;
+                            if (this.radStart >= 230) {
+                                this.check = true;
+                            }
+                        }
+                        
                         this.x -= 0.1;
                     } else {
                         this.x = Math.round(this.x);
@@ -97,8 +143,22 @@ class PacMan {
                 case 'right':
                     if(this.map.getWallCoords(this.x+0.99, this.y+0.99) && this.map.getWallCoords(this.x+1, this.y)){
                         this.map.getPointCoords(this.x, this.y);
-                        this.radStart = 30;
-                        this.radEnd = 330; 
+
+                        if (this.check && this.radStart <= 50 || this.check && this.radEnd <=350 ) {
+                            this.radStart -= this.value;
+                            this.radEnd += this.value;
+                            if (this.radStart === 0) {
+                                this.check = false;
+                            } 
+                        } else {
+                            this.check = false;
+                            this.radStart += this.value;
+                            this.radEnd -= this.value;
+                            if (this.radStart >= 50) {
+                                this.check = true;
+                            }
+                        }
+
                         this.x += 0.1;
                     } else {
                         this.x = Math.round(this.x);

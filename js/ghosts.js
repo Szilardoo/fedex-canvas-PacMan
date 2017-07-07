@@ -31,7 +31,7 @@ class Ghosts {
 		this.drawGhost(this.coordsB.x, this.coordsB.y, this.blueSrc);
 		this.drawGhost(this.coordsP.x, this.coordsP.y, this.pinkSrc);
 		this.drawGhost(this.coordsO.x, this.coordsO.y, this.orangeSrc);
-		console.log(this.map.getWallCoords(this.redX-3, this.redY));
+		// console.log(this.map.getWallCoords(this.redX-3, this.redY));
 	}
 
 	ghostsMove(){
@@ -61,7 +61,7 @@ class Ghosts {
 			this.xOrY = this.xy[Math.floor(Math.random() *2)]
 			//ha az x-hez ...
 			if(this.xOrY === 'x'){
-				console.log(this.redX);
+				// console.log(this.redX);
 				//generáljon egy új x-értéket a régi x-értékéből plusz -0.1 vagy 0.1 tehár jobra vagy balra menjen.
 				this.newX = this.redX + this.direction[Math.floor(Math.random() *2)];
 				//megnézzük hogy az új értékünk valid-e tehát nem-e fal.
