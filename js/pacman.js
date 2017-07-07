@@ -46,6 +46,7 @@ class PacMan {
                 if(Math.round(this.ghosts.redX) === Math.round(this.x) && Math.round(this.ghosts.redY) === Math.round(this.y) && this.canEat){
                     this.ghosts.eatedRed = true;
                     this.ghosts.redX = 0;
+                    this.map.points += 200;
                 }
             this.ghosts.ghostsMove();
             window.addEventListener('keypress', function(event) {
