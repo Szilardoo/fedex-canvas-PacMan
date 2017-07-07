@@ -47,6 +47,13 @@ class Map {
             this.eatableGhosts = true
             this.map[parseInt(pacmanY)][parseInt(pacmanX)] = 0;
         }
+        this.putFruits();
+    }
+
+    putFruits() {
+        if (this.points >= 100 && this.points !==0 && this.points % 100 === 0) {
+            console.log('putFruits');
+        }
     }
 
     render() {
