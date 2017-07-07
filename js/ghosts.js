@@ -51,17 +51,17 @@ class Ghosts {
 			//right
 		}else if (this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9) &&
 			this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.9)) {
-			console.log('ez')
+			// console.log('ez')
 			this.redX += this.leRiUpDo;
 
 
 		} else if (this.map.getWallCoords(this.redX+0.99, this.redY+0.1) && this.map.getWallCoords(this.redX+0.99, this.redY+0.9)){
-			console.log('ss')
+			// console.log('ss')
 			//down
 			if(this.map.getWallCoords(this.redX+0.1, this.redY+1) && this.map.getWallCoords(this.redX+0.9, this.redY+1)){
 				this.redY += 0.1
 			} else {
-				console.log('else')
+				// console.log('else')
 				this.redX += 0.1;
 				this.leRiUpDo = 0.1
 			}
@@ -69,7 +69,7 @@ class Ghosts {
 			// console.log('asd')
 			this.redY += 0.1;
 		 } else if(this.map.getWallCoords(this.redX-0.1, this.redY+0.1) && this.map.getWallCoords(this.redX-0.1, this.redY+0.7)){
-		 	console.log('he')
+		 	// console.log('he')
 		 	this.redX -= 0.1; 
 		 } else if(this.map.getWallCoords(this.redX+0.1, this.redY-0.2) && this.map.getWallCoords(this.redX+0.9, this.redY-0.2)){}
 

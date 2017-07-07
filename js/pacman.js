@@ -24,6 +24,7 @@ class PacMan {
     toRadians(deg) {
         return deg* Math.PI/180;
     }
+
     render(pos_x = 10, pos_y = 15, radStart, radEnd) {
         this.x = pos_x;
         this.y = pos_y;
@@ -37,7 +38,6 @@ class PacMan {
         this.dom.ctx.fill();
     }
     animate(startTime, direction){
-        // let score = document.querySelector('.points');
         let interval = setInterval(function() {
             this.ghosts.ghostsMove();
             window.addEventListener('keypress', function(event) {
@@ -56,7 +56,6 @@ class PacMan {
             });
             this.dom.ctx.clearRect(0, 0, 525, 525);
             this.map.render();
-            // console.log(this.map.points);
             document.querySelector('.points').textContent = this.map.points;
             switch(direction) {
                 case 'up':
