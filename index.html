@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link href="css/style.css" rel="stylesheet">-->
+        <title>Pac man</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+        <link href="css/style.css" rel="stylesheet" type="text/css" charset="utf-8">
         <style>
-            canvas {
-                background: black;
-            }
+        
         </style>
     </head>
     <body>
-        <div class="main">
-            <div class="title">Pac Man</div>
-            <button>new game</button>
-            <canvas id="" width="525" height="525"></canvas>
-            <div class="menu">
-                <div class="score">score</div>
-                <div class="level">level</div>
-                <div class="lives">lives</div>
+        <div class="container">
+            <div class="main">
+                <div class="upperPanel">
+                <p>1UP HIGH SCORE 2UP</p>
+                <p>POINTS POINTS</p>
+                </div>
+                <div class="middlePanel">
+                    <canvas id="" width="525" height="525"></canvas>
+                </div>
+                <div class="bottomPanel">
+                    <div><p>Here will be : remain lifes and fruits</p></div>
+                </div>
             </div>
         </div>
+        
         <script src="./js/pacman.js"></script>
         <script src="./js/map.js"></script>
         <script src="./js/dom.js"></script>

@@ -6,7 +6,7 @@ class PacMan {
         this.map = new Map();
         this.x = 10;
         this.y = 15;
-        this.render(this.x, this.y)
+        this.render(this.x, this.y);
         // let startTime = (new Date()).getTime();
         // this.animate(startTime, 'up');
     }
@@ -16,9 +16,9 @@ class PacMan {
     render(pos_x, pos_y) {
         this.dom.ctx.fillStyle = 'yellow';
         this.dom.ctx.beginPath();
-        this.dom.ctx.moveTo(pos_x*25+12.5, pos_y*25+12.5)
+        this.dom.ctx.moveTo(pos_x*25+12.5, pos_y*25+12.5);
         this.dom.ctx.arc(pos_x*25+12.5, pos_y*25+12.5, 10, this.toRadians(300), this.toRadians(240));
-        this.dom.ctx.lineTo(pos_x*25+12.5, pos_y*25+12.5)
+        this.dom.ctx.lineTo(pos_x*25+12.5, pos_y*25+12.5);
         this.dom.ctx.closePath();
         this.dom.ctx.stroke();
         this.dom.ctx.fill();
@@ -33,40 +33,71 @@ class PacMan {
     let i = setInterval(function(){
             window.addEventListener('keypress', function(event) {
                 if(event.keyCode === 119) {
-                    clearInterval(i)
+                    clearInterval(i);
                 }
                 if(event.keyCode === 97) {
-                    clearInterval(i)
+                    clearInterval(i);
                 }
                 if(event.keyCode === 115) {
-                    clearInterval(i)
+                    clearInterval(i);
                 }
                 if(event.keyCode === 100) {
-                    clearInterval(i)
+                    clearInterval(i);
                 }
-            })
+            });
       		if(this.x < 20){
       			this.dom.ctx.clearRect(0, 0, 525, 525);
       			this.map.render();
                 switch(direction) {
                     case 'up':
-                        this.y -= 0.1
+                        this.y -= 0.05;
                         break;
                     case 'down':
-                        this.y += 0.1;
+                        this.y += 0.05;
                         break;
                     case 'left':
-                        this.x -= 0.1;
+                        this.x -= 0.05;
                         break;
                     case 'right':
-                        this.x += 0.1;
+                        if (true) {}
+                        this.x += 0.05;
                         break;
                 }
 	    		this.render(this.x, this.y);
-	    		console.log(this.x)
+	    		console.log([Math.floor(this.x, 2), Math.floor(this.y, 2)]);
 	    	}
+        }.bind(this), 20);
+    }
 
-        }.bind(this), 20)
+    positionCheck() {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		// window.requestAnimFrame = (function(callback) {
 		//     return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
@@ -95,5 +126,3 @@ class PacMan {
 		// 	    this.animate(startTime, moveLeftRight, moveUpDown);
 		// 	}.bind(this));
 		// }
-    }
-}
