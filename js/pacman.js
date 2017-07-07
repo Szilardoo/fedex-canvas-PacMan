@@ -58,7 +58,7 @@ class PacMan {
             // console.log(this.map.points)
             switch(direction) {
                 case 'up':
-                    if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x+0.99, this.y)){
+                    if(this.map.getWallCoords(this.x, this.y-0.1) && this.map.getWallCoords(this.x+0.99, this.y-0.1)){
                         this.map.getPointCoords(this.x, this.y);
 
                         if (this.check && this.radStart <= 320 || this.check && this.radEnd <=240 ) {
@@ -91,7 +91,7 @@ class PacMan {
                     }
                     break;
                 case 'down':
-                    if(this.map.getWallCoords(this.x+0.99, this.y+0.99) && this.map.getWallCoords(this.x, this.y+0.99)){
+                    if(this.map.getWallCoords(this.x+0.99, this.y+1.1) && this.map.getWallCoords(this.x, this.y+1.1)){
                         this.map.getPointCoords(this.x, this.y);
 
                         if (this.check && this.radStart <= 140 || this.check && this.radEnd <=40 ) {
@@ -116,7 +116,7 @@ class PacMan {
                     }
                     break;
                 case 'left':
-                    if(this.map.getWallCoords(this.x, this.y) && this.map.getWallCoords(this.x, this.y+0.99)){
+                    if(this.map.getWallCoords(this.x-0.1, this.y) && this.map.getWallCoords(this.x-0.1, this.y+0.99)){
                         this.map.getPointCoords(this.x, this.y);
 
                         if (this.check && this.radStart <= 230 || this.check && this.radEnd <=130 ) {
